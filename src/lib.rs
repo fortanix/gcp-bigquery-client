@@ -103,7 +103,7 @@ impl Client {
         ClientBuilder::new().build_with_workload_identity(readonly).await
     }
 
-    pub(crate) fn v2_base_url(&mut self, base_url: String) -> &mut Self {
+    pub fn v2_base_url(&mut self, base_url: String) -> &mut Self {
         self.dataset_api.with_base_url(base_url.clone());
         self.table_api.with_base_url(base_url.clone());
         self.job_api.with_base_url(base_url.clone());
