@@ -62,6 +62,7 @@ impl JobApi {
             .post(req_url.as_str())
             .bearer_auth(access_token)
             .json(&query_request)
+            .query(&[("prettyPrint", false)])
             .build()?;
 
         let resp = self.client.execute(request).await?;
@@ -274,6 +275,7 @@ impl JobApi {
             .post(req_url.as_str())
             .bearer_auth(access_token)
             .json(&job)
+            .query(&[("prettyPrint", false)])
             .build()?;
 
         let resp = self.client.execute(request).await?;
@@ -372,6 +374,7 @@ impl JobApi {
             .get(req_url.as_str())
             .query(&parameters)
             .bearer_auth(access_token)
+            .query(&[("prettyPrint", false)])
             .build()?;
 
         let resp = self.client.execute(request).await?;
